@@ -89,6 +89,34 @@ public class DBManager {
         return pop;
     }
 
+    public  static ArrayList<PopulationData> getPopulationForRegion(){
+        ArrayList<PopulationData> pop = new ArrayList<PopulationData>();
+        String sql = "select region, sum(population) population from country group by region order by population desc limit 10;";
+
+        try (Connection connection = DriverManager.getConnection(connectionURL, user, password);
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(sql);)
+        {
+            while (resultSet.next()){
+
+                String region = resultSet.getString("REGION");
+
+                Double regionPopulation = resultSet.getDouble("POPULATION");
+
+                PopulationData newPopulationData = new PopulationData(region,regionPopulation);
+
+                pop.add(newPopulationData);
+            }
+
+
+        } catch(Exception exception)
+        {
+            exception.printStackTrace();
+        }
+
+        return pop;
+    }
+
 
     public static XYChart.Series<String, Integer> getCountryPopulation() {
         XYChart.Series<String,Integer> countryPopulation = new XYChart.Series<>();
@@ -110,5 +138,16 @@ public class DBManager {
             continentPopulation.getData().add(new XYChart.Data<>(finalResult.getContinent(), finalResult.getPopulationContinent()));
         }
         return continentPopulation;
+    }
+
+
+    public static XYChart.Series<String, Double> getRegionPopulation() {
+        XYChart.Series<String,Double> regionPopulation = new XYChart.Series<>();
+        regionPopulation.setName("Region");
+        ArrayList<PopulationData> result = getPopulationForRegion();
+        for(PopulationData finalResult : result){
+            regionPopulation.getData().add(new XYChart.Data<>(finalResult.getContinent(), finalResult.getPopulationContinent()));
+        }
+        return regionPopulation;
     }
 }

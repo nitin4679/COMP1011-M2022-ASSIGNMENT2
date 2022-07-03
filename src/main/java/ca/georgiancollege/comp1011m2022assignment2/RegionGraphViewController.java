@@ -52,6 +52,9 @@ public class RegionGraphViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        barChart.getData().addAll(DBManager.getRegionPopulation());
+        NumberAxis.setLabel("POPULATION");
+        categoryAxis.setLabel("REGION");
+        barChart.setLegendVisible(false);
     }
 }
