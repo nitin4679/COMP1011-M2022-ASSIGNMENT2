@@ -13,7 +13,7 @@ public class main extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("GraphViewScene.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Welcome to Assignment 1 of Java!");
+        stage.setTitle("Welcome to Assignment 2 of Java!");
 
         // Added icon to the UI
         Image icon = new Image(getClass().getResourceAsStream("icon.png"));

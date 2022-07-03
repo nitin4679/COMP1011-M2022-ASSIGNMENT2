@@ -123,7 +123,7 @@ public class DBManager {
         return pop;
     }
 
-
+    // this method is to return country bar chart data
     public static XYChart.Series<String, Integer> getCountryPopulation() {
         XYChart.Series<String,Integer> countryPopulation = new XYChart.Series<>();
         countryPopulation.setName("Country");
@@ -135,7 +135,7 @@ public class DBManager {
     }
 
 
-
+    // this method is to return continent bar chart data
     public static XYChart.Series<String, Double> getContinentPopulation() {
         XYChart.Series<String,Double> continentPopulation = new XYChart.Series<>();
         continentPopulation.setName("Continent");
@@ -146,7 +146,7 @@ public class DBManager {
         return continentPopulation;
     }
 
-
+    // this method is to return region bar chart data
     public static XYChart.Series<String, Double> getRegionPopulation() {
         XYChart.Series<String,Double> regionPopulation = new XYChart.Series<>();
         regionPopulation.setName("Region");
