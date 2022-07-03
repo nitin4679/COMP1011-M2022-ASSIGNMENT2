@@ -1,5 +1,7 @@
 package ca.georgiancollege.comp1011m2022assignment2;
 
+import javafx.scene.chart.XYChart;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -56,5 +58,15 @@ public class DBManager {
         }
 
         return pop;
+    }
+
+    public static XYChart.Series<String, Integer> getCountryPopulation() {
+        XYChart.Series<String,Integer> countryPopulation = new XYChart.Series<>();
+        countryPopulation.setName("Country");
+        ArrayList<PopulationData> result = getPopulationFromDb();
+        for(PopulationData finalResult : result){
+            countryPopulation.getData().add(new XYChart.Data<>(finalResult.getName(), finalResult.getPopulation()));
+        }
+        return countryPopulation;
     }
 }

@@ -12,13 +12,13 @@ import javafx.scene.control.RadioButton;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class GraphViewSceneController implements Initializable {
+public class CountryGraphViewSceneController implements Initializable {
 
     @FXML
     private NumberAxis NumberAxis;
 
     @FXML
-    private BarChart<?, ?> barChart;
+    private BarChart<String, Integer> barChart;
 
     @FXML
     private CategoryAxis categoryAxis;
@@ -43,6 +43,9 @@ public class GraphViewSceneController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        barChart.getData().addAll(DBManager.getCountryPopulation());
+        NumberAxis.setLabel("POPULATION");
+        categoryAxis.setLabel("COUNTRY");
+        barChart.setLegendVisible(false);
     }
 }
