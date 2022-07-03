@@ -22,11 +22,11 @@
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin></RadioButton>
-                  <RadioButton fx:id="continentRadio" mnemonicParsing="false" prefHeight="50.0" prefWidth="115.0" text="CONTINENT">
+                  <RadioButton fx:id="continentRadio" mnemonicParsing="false" onAction="#loadContinentPopulation" prefHeight="50.0" prefWidth="115.0" text="CONTINENT">
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin></RadioButton>
-                  <RadioButton fx:id="regionRadio" mnemonicParsing="false" prefHeight="50.0" prefWidth="125.0" text="REGION">
+                  <RadioButton fx:id="regionRadio" mnemonicParsing="false" onAction="#loadRegionPopulation" prefHeight="50.0" prefWidth="125.0" text="REGION">
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin></RadioButton>

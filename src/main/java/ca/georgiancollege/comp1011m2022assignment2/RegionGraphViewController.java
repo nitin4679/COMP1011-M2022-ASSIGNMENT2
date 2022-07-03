@@ -40,6 +40,15 @@ public class RegionGraphViewController implements Initializable {
         SceneManager.changeScenes(event, "TableViewScene.fxml");
 
     }
+    @FXML
+    private void loadContinentPopulation(ActionEvent event) throws IOException {
+        SceneManager.changeScenes(event,"ContinentGraphViewScene.fxml");
+    }
+
+    @FXML
+    private void loadCountryPopulation(ActionEvent event) throws IOException {
+        SceneManager.changeScenes(event,"GraphViewScene.fxml");
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
