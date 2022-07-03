@@ -53,6 +53,10 @@ public class ContinentGraphViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        barChart.getData().addAll(DBManager.getContinentPopulation());
+        NumberAxis.setLabel("POPULATION");
+        categoryAxis.setLabel("CONTINENT");
+        barChart.setLegendVisible(false);
 
     }
 }

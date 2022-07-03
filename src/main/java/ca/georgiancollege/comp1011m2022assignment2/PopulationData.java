@@ -10,6 +10,8 @@ public class PopulationData
     private String region;
     private int population;
 
+    private double populationContinent;
+
     // Constructors
 
     public PopulationData(String code, String name, String continent, String region, int population)
@@ -19,6 +21,12 @@ public class PopulationData
         setContinent(continent);
         setRegion(region);
         setPopulation(population);
+    }
+
+    public PopulationData(String continent, Double populationContinent) {
+
+        setContinent(continent);
+        setPopulationContinent(populationContinent);
     }
 
 
@@ -72,6 +80,14 @@ public class PopulationData
     public void setPopulation(int population)
     {
         this.population = population;
+    }
+
+    public double getPopulationContinent() {
+        return populationContinent;
+    }
+
+    public void setPopulationContinent(double populationContinent) {
+        this.populationContinent = populationContinent;
     }
 
 

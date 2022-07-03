@@ -60,6 +60,36 @@ public class DBManager {
         return pop;
     }
 
+
+    public  static ArrayList<PopulationData> getPopulationForContinent(){
+        ArrayList<PopulationData> pop = new ArrayList<PopulationData>();
+        String sql = "select continent, sum(population) population from country group by continent order by population desc;";
+
+        try (Connection connection = DriverManager.getConnection(connectionURL, user, password);
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(sql);)
+        {
+            while (resultSet.next()){
+
+                String continent = resultSet.getString("CONTINENT");
+
+                Double populationContinent = resultSet.getDouble("POPULATION");
+
+                PopulationData newPopulationData = new PopulationData(continent,populationContinent);
+
+                pop.add(newPopulationData);
+            }
+
+
+        } catch(Exception exception)
+        {
+            exception.printStackTrace();
+        }
+
+        return pop;
+    }
+
+
     public static XYChart.Series<String, Integer> getCountryPopulation() {
         XYChart.Series<String,Integer> countryPopulation = new XYChart.Series<>();
         countryPopulation.setName("Country");
@@ -68,5 +98,17 @@ public class DBManager {
             countryPopulation.getData().add(new XYChart.Data<>(finalResult.getName(), finalResult.getPopulation()));
         }
         return countryPopulation;
+    }
+
+
+
+    public static XYChart.Series<String, Double> getContinentPopulation() {
+        XYChart.Series<String,Double> continentPopulation = new XYChart.Series<>();
+        continentPopulation.setName("Continent");
+        ArrayList<PopulationData> result = getPopulationForContinent();
+        for(PopulationData finalResult : result){
+            continentPopulation.getData().add(new XYChart.Data<>(finalResult.getContinent(), finalResult.getPopulationContinent()));
+        }
+        return continentPopulation;
     }
 }
