@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="061d2679-20d7-4e76-b6e2-b66cee62b24d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ca/georgiancollege/comp1011m2022assignment2/ContinentGraphViewScene.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ca/georgiancollege/comp1011m2022assignment2/RegionGraphViewScene.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ca/georgiancollege/comp1011m2022assignment2/DBManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ca/georgiancollege/comp1011m2022assignment2/DBManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ca/georgiancollege/comp1011m2022assignment2/GraphViewSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ca/georgiancollege/comp1011m2022assignment2/CountryGraphViewSceneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ca/georgiancollege/comp1011m2022assignment2/GraphViewScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ca/georgiancollege/comp1011m2022assignment2/GraphViewScene.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
