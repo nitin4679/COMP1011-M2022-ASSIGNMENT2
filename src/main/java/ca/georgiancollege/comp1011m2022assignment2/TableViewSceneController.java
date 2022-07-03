@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,22 +14,22 @@ import java.util.ResourceBundle;
 public class TableViewSceneController implements Initializable {
 
     @FXML
-    private TableColumn<?, ?> code;
+    private TableColumn<PopulationData, String> code;
 
     @FXML
-    private TableColumn<?, ?> continent;
+    private TableColumn<PopulationData, String> continent;
 
     @FXML
-    private TableColumn<?, ?> name;
+    private TableColumn<PopulationData, String> name;
 
     @FXML
-    private TableColumn<?, ?> population;
+    private TableColumn<PopulationData, Integer> population;
 
     @FXML
-    private TableColumn<?, ?> region;
+    private TableColumn<PopulationData, String> region;
 
     @FXML
-    private TableView<?> tableView;
+    private TableView<PopulationData> tableView;
 
     @FXML
     private Button viewGraph;
@@ -41,7 +42,12 @@ public class TableViewSceneController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        code.setCellValueFactory(new PropertyValueFactory<>("code"));
+        name.setCellValueFactory(new PropertyValueFactory<>("name"));
+        continent.setCellValueFactory(new PropertyValueFactory<>("continent"));
+        region.setCellValueFactory(new PropertyValueFactory<>("region"));
+        population.setCellValueFactory(new PropertyValueFactory<>("population"));
+        tableView.getItems().addAll(DBManager.getPopulationFromDb());
     }
 }
 
