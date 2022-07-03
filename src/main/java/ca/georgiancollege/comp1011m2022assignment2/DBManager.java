@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+// singleton
+
 public class DBManager {
     /********************** SINGLETON SECTION **************************/
     //step 1- private static instance member variable
@@ -27,10 +29,12 @@ public class DBManager {
     }
     /********************************************************************* */
 
+    // private instance member variables
     private static String user = "student";
     private static String password = "123456";
     private static String connectionURL = "jdbc:mysql://localhost:3306/world";
 
+    // this method will retrieve data for top ten countries and population...for countryGraph View scene
     public  static ArrayList<PopulationData> getPopulationFromDb(){
         ArrayList<PopulationData> pop = new ArrayList<PopulationData>();
         String sql = "select code, name, continent, region, population from country order by population desc limit 10;";
@@ -60,7 +64,7 @@ public class DBManager {
         return pop;
     }
 
-
+    // this method will retrieve data for top continents and population...for continentGraph View scene
     public  static ArrayList<PopulationData> getPopulationForContinent(){
         ArrayList<PopulationData> pop = new ArrayList<PopulationData>();
         String sql = "select continent, sum(population) population from country group by continent order by population desc;";
@@ -88,6 +92,8 @@ public class DBManager {
 
         return pop;
     }
+
+    // this method will retrieve data for top region and population...for regionGraph View scene
 
     public  static ArrayList<PopulationData> getPopulationForRegion(){
         ArrayList<PopulationData> pop = new ArrayList<PopulationData>();

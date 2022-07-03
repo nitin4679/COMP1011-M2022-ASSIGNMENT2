@@ -16,6 +16,7 @@ public class PopulationData
 
     // Constructors
 
+    //Default constructor for all the columns
     public PopulationData(String code, String name, String continent, String region, int population)
     {
         setCode(code);
@@ -25,18 +26,20 @@ public class PopulationData
         setPopulation(population);
     }
 
+    // this constructor takes only continent and populationContinent in double datatype
     public PopulationData(String continent, Double populationContinent) {
 
         setContinent(continent);
         setPopulationContinent(populationContinent);
     }
+    // this constructor takes only region and regionPopulation in double datatype
     public PopulationData(String region, double regionPopulation) {
         setRegion(region);
         setRegionPopulation(regionPopulation);
     }
 
 
- // Setter Getters
+    // public properties (Getters and setters)
 
     public String getCode()
     {
